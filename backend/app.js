@@ -14,7 +14,7 @@ app.post('/getLocations', (req, res) => {
 
     const typedKey = req.body.city;
     
-    client.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query="+typedKey+"+top+sights&key=AIzaSyCVv5_ogiA2el00Qc0MU_BkU9OF0J9hCuU", function (data, response) {
+    client.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query="+typedKey+"+top+sights&key=API", function (data, response) {
     // parsed response body as js object
     //console.log(data);
     res.json({msg:true , data:data});
