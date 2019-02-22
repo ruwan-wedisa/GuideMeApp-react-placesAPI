@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 class ResultList extends Component{
     
     render () {
+        //console.log(this.props)
         if(this.props.resultPlaces.results !== undefined ){
             var placeList = this.props.resultPlaces.results.map(name=>{
     

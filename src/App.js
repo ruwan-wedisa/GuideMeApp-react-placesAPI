@@ -21,13 +21,29 @@ class App extends Component {
     })
   }
 
-  saveList(name){
+  saveList(name,id){
     
     const places = this.state.saved.concat([name]);
     this.setState({
       saved:places
     })
   }
+
+  DeleteinSavedPlaces =(id) =>{
+     console.log(this.state.saved)
+     console.log(id.name)
+    
+
+    let savedPlaces = this.state.saved.filter(saved =>{
+      return saved !== id.name
+    })
+
+    //console.log(id)
+    this.setState({
+      saved:savedPlaces
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -43,12 +59,17 @@ class App extends Component {
           {/* loading ResultList component*/}
           <ResultList resultPlaces={this.state.results}
           savedLists = {this.saveList.bind(this)}
+
+          
           />
           
           </div>
           <div className="col-md-4">
           {/* loading SavedList component*/}
-          <SavedList savedList = {this.state.saved}/>
+          <SavedList 
+            savedList = {this.state.saved}
+            deletePlaceID={this.DeleteinSavedPlaces.bind(this)}
+          />
           </div>
         </div>
         </div>
